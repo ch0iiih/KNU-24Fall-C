@@ -9,16 +9,33 @@ struct Student {
 
 
 int main() {
-	struct Student person[2];
-	person[0].snum = 1111;
-	strcpy_s(person[0].name, 100, "홍길동");
-	person[0].score = 60;
+	int N;
+	struct Student *p;
 
-	person[1].snum = 2222;
-	strcpy_s(person[1].name, 100, "곽철수");
-	person[1].score = 80;
-	for (int i = 0; i < 2; i++) {
-		printf("%d %s %d\n", person[i].snum, person[i].name, person[i].score);
+	// scanf --> N
+	printf("학생 수 입력 : ");
+	scanf_s("%d", &N);
+
+	// malloc
+	p = (struct Student*)malloc(N * sizeof(struct Student));
+
+	for (int i = 0; i < N; i++) {
+		printf("학번 : ");
+		scanf_s("%d", &p[i].snum);
+
+		char tmp[100];
+		printf("이름 : ");
+		scanf_s("%s", p[i].name, 100);
+
+		printf("점수 : ");
+		scanf_s("%d", &p[i].score);
 	}
+
+	// average
+
+	for (int i = 0; i < N; i++) {
+		printf("%d %s %d\n", p[i].snum, p[i].name, p[i].score);
+	}
+
 	return 0;
 }
