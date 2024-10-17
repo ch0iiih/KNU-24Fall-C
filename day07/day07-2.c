@@ -64,5 +64,5 @@ int main(void) {
 		count++;
 	}
 
-	printf("원주율 : &.6f", pi);
+	printf("원주율 : %.6f", pi);
 }
