@@ -1,13 +1,13 @@
 #include <stdio.h>
 
 typedef struct {
-    float x;
-    float y;
-    float z;
+    int x;
+    int y;
+    int z;
 } Vector3D;
 
 void printVector(Vector3D v) {
-    printf("(%.2f, %.2f, %.2f)\n", v.x, v.y, v.z);
+    printf(" x:%d   y:%d    z:%d\n", v.x, v.y, v.z);
 }
 
 Vector3D addVectors(Vector3D v1, Vector3D v2) {
@@ -26,7 +26,7 @@ Vector3D subtractVectors(Vector3D v1, Vector3D v2) {
     return result;
 }
 
-float dotProduct(Vector3D v1, Vector3D v2) {
+int dotProduct(Vector3D v1, Vector3D v2) {
     return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
 }
 
@@ -42,10 +42,10 @@ int main() {
     Vector3D v1, v2;
 
     printf("첫번째 벡터(x, y, z) : ");
-    scanf_s("%f %f %f", &v1.x, &v1.y, &v1.z);
+    scanf_s("%d, %d, %d", &v1.x, &v1.y, &v1.z);
 
     printf("두번째 벡터(x, y, z) : ");
-    scanf_s("%f %f %f", &v2.x, &v2.y, &v2.z);
+    scanf_s("%d, %d, %d", &v2.x, &v2.y, &v2.z);
 
     printf("\n입력된 첫번째 벡터: ");
     printVector(v1);
@@ -54,13 +54,14 @@ int main() {
     printVector(v2);
 
     int choice;
-    printf("\n다음 중 하나를 선택하세요:\n");
+    printf("\n----------------\n");
     printf("1. 벡터의 합\n");
     printf("2. 벡터의 차\n");
     printf("3. 벡터의 외적\n");
     printf("4. 벡터의 내적\n");
     printf("5. 종료\n");
-    printf("선택: ");
+    printf("----------------\n");
+    printf("명령 입력: ");
     scanf_s("%d", &choice);
 
     // 선택에 따라 결과 출력
@@ -84,8 +85,8 @@ int main() {
         break;
     }
     case 4: {
-        float vDot = dotProduct(v1, v2);
-        printf("\n벡터의 내적은 vec1 * vec2=%.2f\n", vDot);
+        int vDot = dotProduct(v1, v2);
+        printf("\n벡터의 내적은 vec1 * vec2=%d\n", vDot);
         break;
     }
     case 5: {
@@ -95,6 +96,7 @@ int main() {
         printf("\n잘못된 입력입니다.\n");
         break;
     }
+    printf("\n----------------\n");
 
     return 0;
 }
