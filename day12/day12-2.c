@@ -18,7 +18,7 @@ int solution(int n) {
 
 int main() {
     int n = 5000;
-    int answer = solution(n);
-    printf("결과: %d\n", answer);
+    int k = solution(n);
+    printf("결과: %d\n", k);
     return 0;
 }
